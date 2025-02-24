@@ -1,0 +1,9 @@
+CREATE TABLE pagamentos (
+    id SERIAL PRIMARY KEY,
+    valor DECIMAL NOT NULL,
+    pagamento_status VARCHAR(255) NOT NULL,
+    pagamento_id VARCHAR(255) NOT NULL,
+    evento_id INTEGER REFERENCES events(id) ON DELETE CASCADE
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
