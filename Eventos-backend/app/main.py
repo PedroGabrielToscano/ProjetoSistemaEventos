@@ -8,7 +8,7 @@ from routes.pagamentos import pagamentos_bp
 from routes.auth import auth_bp
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origin s": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
 
 app.register_blueprint(users_bp,url_prefix="/users")
 app.register_blueprint(responsaveis_bp,url_prefix="/responsaveis")
