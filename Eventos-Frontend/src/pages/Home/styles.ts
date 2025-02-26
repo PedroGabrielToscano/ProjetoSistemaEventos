@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column; // Coloca os elementos em coluna
   align-items: center; // Centraliza horizontalmente
   height: auto; // Ajusta a altura conforme necessário
-  background-color:rgb(85, 85, 85)
+  background-color:rgb(21, 27, 34)
 `;
 
 // Nova seção para o wallpaper

@@ -20,8 +20,13 @@ import {
   ModalOverlay,
   ModalContent,
   Button,
-  DeleteButton,
-  EditEventButton
+  DeleteEventButton,
+  EditEventButton,
+  ModalTitle,
+  StyledForm,
+  StyledInput,
+  ContainerButtons,
+  BuyButton
 } from './style';
 
 interface AuthData {
@@ -198,7 +203,7 @@ const Eventos: React.FC = () => {
     <PageWrapper>
       <HeaderContainer>
         <HeaderLeft>
-          <Title>Eventos & Bilheteria Foz</Title>
+          <Title>IngressaMais</Title>
         </HeaderLeft>
         <HeaderRight>
           <UserInfo>
@@ -211,7 +216,7 @@ const Eventos: React.FC = () => {
           </UserInfo>
         </HeaderRight>
       </HeaderContainer>
-  
+      
       <MainContent>
         {authData?.userRole === "responsavel" && (
           <AddEventButton
@@ -245,7 +250,7 @@ const Eventos: React.FC = () => {
                 </CardInfo>
   
                 {authData?.userRole === "responsavel" && (
-                  <>
+                  <ContainerButtons>
                     <EditEventButton
                       onClick={() => {
                         setEditingEvent(event);
@@ -256,12 +261,25 @@ const Eventos: React.FC = () => {
                         setLocalEvento(event.local_Evento);
                         setShowModal(true);
                       }}
+
                     >
                       Editar
                     </EditEventButton>
-                    <DeleteButton onClick={() => handleDelete(event.id)}>Deletar</DeleteButton>
-                  </>
+                    <DeleteEventButton onClick={() => handleDelete(event.id)}>Deletar</DeleteEventButton>
+                    </ContainerButtons>
                 )}
+                {authData?.userRole === "user" &&(
+          <ContainerButtons>
+            <BuyButton
+              onClick={() => {
+
+                
+              }}
+              >
+                Comprar ingresso
+            </BuyButton>
+          </ContainerButtons>
+        )}
               </Card>
             ))
           ) : (
@@ -271,49 +289,49 @@ const Eventos: React.FC = () => {
   
         {showModal && (
           <ModalOverlay>
-            <ModalContent>
-              <h2>{editingEvent ? "Editar Evento" : "Criar Evento"}</h2>
-              <form onSubmit={editingEvent ? handleEdit : handleSubmit}>
-                <input
-                  type="text"
-                  placeholder="Nome"
-                  value={nome}
-                  onChange={(e) => setNome(e.target.value)}
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="Descrição"
-                  value={descricao}
-                  onChange={(e) => setDescricao(e.target.value)}
-                  required
-                />
-                <input
-                  type="date"
-                  value={dataEvento}
-                  onChange={(e) => setDataEvento(e.target.value)}
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="Imagem (URL)"
-                  value={imagem}
-                  onChange={(e) => setImagem(e.target.value)}
-                />
-                <input
-                  type="text"
-                  placeholder="Local"
-                  value={localEvento}
-                  onChange={(e) => setLocalEvento(e.target.value)}
-                  required
-                />
-                <Button type="submit">{editingEvent ? "Atualizar" : "Criar"}</Button>
-                <Button type="button" onClick={() => setShowModal(false)}>
-                  Cancelar
-                </Button>
-              </form>
-            </ModalContent>
-          </ModalOverlay>
+          <ModalContent>
+            <ModalTitle>{editingEvent ? "Editar Evento" : "Criar Evento"}</ModalTitle>
+            <StyledForm onSubmit={editingEvent ? handleEdit : handleSubmit}>
+              <StyledInput
+                type="text"
+                placeholder="Nome"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                required
+              />
+              <StyledInput
+                type="text"
+                placeholder="Descrição"
+                value={descricao}
+                onChange={(e) => setDescricao(e.target.value)}
+                required
+              />
+              <StyledInput
+                type="date"
+                value={dataEvento}
+                onChange={(e) => setDataEvento(e.target.value)}
+                required
+              />
+              <StyledInput
+                type="text"
+                placeholder="Imagem (URL)"
+                value={imagem}
+                onChange={(e) => setImagem(e.target.value)}
+              />
+              <StyledInput
+                type="text"
+                placeholder="Local"
+                value={localEvento}
+                onChange={(e) => setLocalEvento(e.target.value)}
+                required
+              />
+              <Button type="submit">{editingEvent ? "Atualizar" : "Criar"}</Button>
+              <Button type="button" onClick={() => setShowModal(false)}>
+                Cancelar
+              </Button>
+            </StyledForm>
+          </ModalContent>
+        </ModalOverlay>        
         )}
       </MainContent>
     </PageWrapper>

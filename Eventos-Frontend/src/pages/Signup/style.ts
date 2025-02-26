@@ -1,24 +1,41 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #f9f9f9;
+  background-color: #1e1e1e;
+  padding: 20px;
+  height: 650px;
+  border-left: 6px solid #007bff;
+  border-bottom: 6px solid #007bff;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  text-align: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ContainerPage = styled.div`
+  background-color:rgb(58, 58, 58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  min-height: 100vh;
 `;
 
 export const Title = styled.h1`
   text-align: center;
   margin-bottom: 1rem;
-  color: #333;
+  color: #FFF;
 `;
 
 export const Paragraph = styled.p`
   text-align: center;
   margin-bottom: 2rem;
-  color: #666;
+  color: #FFF;
 `;
 
 export const Form = styled.form`

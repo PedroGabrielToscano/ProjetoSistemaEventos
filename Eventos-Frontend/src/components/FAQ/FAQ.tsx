@@ -68,17 +68,15 @@ const FAQ = () => {
     "Como saber se é seguro comprar?",
     "Quais os metódos de pagamento?",
     "Qual o tempo de entrega?",
-    "Como funciona a garantia?",
     "Vocês tem cupom? como consigo um?",
   ];
 
   const answers = [
-    "Resposta para a pergunta um.",
-    "Resposta para a pergunta dois.",
-    "Resposta para a pergunta três.",
-    "Resposta para a pergunta quatro.",
-    "Resposta para a pergunta cinco.",
-    "Resposta para a pergunta seis.",
+    "Somos uma empresa especializada na venda de eventos, dedicados a transformar momentos em experiências inesquecíveis. Nosso foco é conectar pessoas aos melhores eventos culturais, esportivos e de entretenimento, garantindo uma jornada completa desde a descoberta até a participação no evento.",
+    "Priorizamos a segurança e a transparência em todas as etapas da compra. ",
+    "MERCADO PAGO.",
+    "Para compras de ingressos eletrônicos, a confirmação e o envio são realizados de forma quase imediata",
+    "Ainda não",
   ];
 
   // Array de ícones diferentes

@@ -43,76 +43,38 @@ import FAQ from '../../components/FAQ/FAQ'
 
 import email from "../../assets/icons/email.png";
 import seguranca from "../../assets/icons/seguranca.png";
-import ban from "../../assets/icons/ban.png";
 
 import astronautCorki from "../../assets/figures/astronautCorki.png"; // Imagem importada
-import astronautIvern from "../../assets/figures/astronautIvern.png"; // Imagem importada
 import astronautNautilus from "../../assets/figures/astronautNautilus.png"; // Imagem importada
-import astronautTeemo from "../../assets/figures/astronautTeemo.png"; // Imagem importada
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 
 
 const items = [
   {
-    nick: "Ensabuado",
-    review: "Atendimento bom demais, comprei chegou na hora valeu tmj. Atendimento bom demais, comprei chegou na hora valeu tmj. Atendimento bom demais, comprei chegou na hora valeu tmj. Atendimento bom demais, comprei chegou na hora valeu tmj. teste teste teste teste ",
-    imageUrl: "https://i.pinimg.com/originals/6e/be/a5/6ebea5dbbe07d8bee942e0ed6fbb5c0d.png"
+    nick: "PGT TURBO PEDRO",
+    review: "Atendimento bom demais, comprei ",
+    imageUrl: "https://i.imgur.com/NbSZrAK.jpeg"
   },
   {
-    nick: "Item 2",
-    review: "review for item 2",
-    imageUrl: "https://www.w3schools.com/w3images/avatar6.png"
+    nick: "Dioguin maluco",
+    review: "Comprei 2 ingressos,",
+    imageUrl: "https://i.imgur.com/QYRFcC0.jpeg"
   },
   {
-    nick: "Item 3",
-    review: "review for item 3",
-    imageUrl: "https://www.w3schools.com/w3images/avatar5.png"
+    nick: "Jose arco iris kkkk",
+    review: "Comprei para ver o arco iris nas cataratas #amei",
+    imageUrl: "https://i.imgur.com/CIpVONy.jpeg"
   },
   {
-    nick: "Item 4",
-    review: "review for item 4",
-    imageUrl: "https://www.w3schools.com/w3images/avatar2.png"
+    nick: "ONÇA TOMANDO MAMADEIRA",
+    review: "fui visitar o refugio itaipu",
+    imageUrl: "https://i.imgur.com/zNTMXF2.jpeg"
   },
   {
-    nick: "Item 5",
-    review: "review for item 5",
-    imageUrl: "https://www.w3schools.com/w3images/avatar6.png"
-  },
-  {
-    nick: "Item 6",
-    review: "review for item 6",
-    imageUrl: "https://www.w3schools.com/w3images/avatar5.png"
-  },
-  {
-    nick: "Item 7",
-    review: "review for item 7",
-    imageUrl: "https://www.w3schools.com/w3images/avatar2.png"
-  },
-  {
-    nick: "Item 8",
-    review: "review for item 8",
-    imageUrl: "https://www.w3schools.com/w3images/avatar6.png"
-  },
-  {
-    nick: "Item 9",
-    review: "review for item 9",
-    imageUrl: "https://www.w3schools.com/w3images/avatar5.png"
-  },
-  {
-    nick: "Item 10",
-    review: "review for item 10",
-    imageUrl: "https://www.w3schools.com/w3images/avatar2.png"
-  },
-  {
-    nick: "Item 11",
-    review: "review for item 11",
-    imageUrl: "https://www.w3schools.com/w3images/avatar6.png"
-  },
-  {
-    nick: "Item 12",
-    review: "review for item 12",
-    imageUrl: "https://www.w3schools.com/w3images/avatar5.png"
+    nick: "Kleiton",
+    review: "amei muito o evento, e o site ajudou bastante ",
+    imageUrl: "https://i.imgur.com/gERhs08.jpeg"
   }
 ];
 
@@ -128,27 +90,25 @@ const Home: React.FC = () => {
       <Content>
         <ContainerText>
           <Title>
-            Garanta sua <strong className="bold">Smurf de League of Legends</strong> e Inicie sua Nova Jornada
+            Garanta seu <strong className="bold">Ingresso para os principais eventos da cidade</strong> e aproveite tudo de Foz
           </Title>
           <Subtitle>
-            Bem-vindo ao maior site de compra de smurfs 100% seguras contra banimentos.
+            Bem-vindo ao maior site de compra de ingressos.
           </Subtitle>
-          <BuyButton>Comprar Smurf</BuyButton>
+          <a href="/signup">
+    <BuyButton>Ver eventos</BuyButton>
+  </a>
         </ContainerText>
       </Content>
 
       <CardsContainer>
         <Card>
           <img src={email} alt="Acesso completo a conta" />
-          <p>Acesso completo a conta</p>
+          <p>Informação completa dos eventos</p>
         </Card>
         <Card>
           <img src={seguranca} alt="Garantia e segurança" />
           <p>Garantia e segurança</p>
-        </Card>
-        <Card>
-          <img src={ban} alt="Imune a banimentos" />
-          <p>Imune a banimentos</p>
         </Card>
       </CardsContainer>
 
@@ -156,68 +116,29 @@ const Home: React.FC = () => {
       <InfoSection>
         <InfoImage src={astronautCorki} alt="Astronaut Corki" />
         <InfoText>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p>Bem-vindo! Somos especialistas em transformar momentos em experiências inesquecíveis. Conectamos você aos mel
+          hores eventos culturais, esportivos e de entretenimento, proporcionando uma plataforma completa para descobrir, reservar e aproveitar experiências únicas.</p>
           <StatsSection>
             <StatsCard>
-              <h3>10000+</h3>
-              <p>Jornadas realizadas</p>
+              <h3>1000+</h3>
+              <p>Eventos cadastrados</p>
             </StatsCard>
             <StatsCard>
               <h3>10000+</h3>
               <p>Clientes embarcados</p>
             </StatsCard>
             <StatsCard>
-              <h3>10000+</h3>
+              <h3>3000+</h3>
               <p>Feedbacks registrados</p>
             </StatsCard>
           </StatsSection>
-          <StatsButton>Quero uma Smurf também</StatsButton>
+          <a href="/signup">
+          <StatsButton>Descubra Mais</StatsButton>
+          </a>
         </InfoText>
       </InfoSection>
 
-      {/* Buy Section */}
-      <BuySection>
-        <BuyContainerRow>
-          <BuyContainerColumn>
-            <BuyTitle>Garanta sua conta</BuyTitle>
-            <BuyText>Selecione o tipo de compra que você deseja realizar e se atente a todas as informaçõesrr sobre a smurf desejada</BuyText>
-
-            <BuyContainerRow>
-              <BuyCard id="buyRandom">
-                <BuyTitleCard>Smurf Random</BuyTitleCard>
-                <BuyPriceCard>R$ 14,99</BuyPriceCard>
-                <BuyTextCard>Não liga para a skin que venha na conta e quer pagar barato?</BuyTextCard>
-                <BuyWarrantyCard>Garantia: 7 dias</BuyWarrantyCard>
-                <BuyListCard>
-                  <li>Pelo menos nível 30</li>
-                  <li>40.000+ de Essência Azul</li>
-                  <li>MMR 100% Zerado</li>
-                  <li>E-mail não confirmado</li>
-                  <li>Skins aleatórias nos espólios</li>
-                </BuyListCard>
-                <BuyButtonCard>Comprar</BuyButtonCard>
-              </BuyCard>
-
-              <BuyCard id="buySkin">
-                <BuyTitleCard>Smurf com Skin</BuyTitleCard>
-                <BuyPriceCard>R$ 19,99+</BuyPriceCard>
-                <BuyTextCard>Escolha uma skin para estar nos espólios de sua smurf!</BuyTextCard>
-                <BuyWarrantyCard>Garantia: 10 dias</BuyWarrantyCard>
-                <BuyListCard>
-                  <li>Pelo menos nível 30</li>
-                  <li>40.000+ de Essência Azul</li>
-                  <li>MMR 100% Zerado</li>
-                  <li>E-mail não confirmado</li>
-                  <li>Escolha uma skin garantida</li>
-                </BuyListCard>
-                <BuyButtonCard>Escolher Skin</BuyButtonCard>
-              </BuyCard>
-            </BuyContainerRow>
-
-          </BuyContainerColumn>
-          <BuyImage src={astronautIvern} alt="Astronaut Ivern" />
-        </BuyContainerRow>
-      </BuySection>
+      
 
       {/* Feedback Section */}
       <FeedbackSection>

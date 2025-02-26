@@ -7,10 +7,7 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <Logo src={logoFigure}></Logo>
       <Nav>
-        <NavItem>SMURFS</NavItem>
-        <NavItem>SKINS</NavItem>
-        <NavItem>FAQ</NavItem>
-        <NavItem>CONTATO</NavItem>
+        <NavItem>IngressaMais</NavItem>
       </Nav>
     </HeaderContainer>
   );

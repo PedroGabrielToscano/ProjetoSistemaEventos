@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Container, Title, Paragraph, Form, Input, Button, ErrorMessage, SignupLink } from './style';
+import { Container, Title, Paragraph, Form, Input, Button, ErrorMessage, SignupLink, ContainerPage } from './style';
 
 interface JwtPayload {
   id: string;
@@ -69,6 +69,7 @@ const Auth: React.FC = () => {
   };
 
   return (
+    <ContainerPage>
     <Container>
       <Title>Autenticação</Title>
       <Paragraph>Digite seu email e senha para acessar sua conta</Paragraph>
@@ -94,6 +95,7 @@ const Auth: React.FC = () => {
       {/* Botão para ir para a página de cadastro */}
       <SignupLink onClick={() => navigate('/signup')}>Ainda não é cadastrado? Clique aqui!</SignupLink>
     </Container>
+    </ContainerPage>
   );
 };
 

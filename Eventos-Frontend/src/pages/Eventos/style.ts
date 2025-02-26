@@ -4,14 +4,15 @@ import styled from 'styled-components';
 export const PageWrapper = styled.div`
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(135deg, #dbeafe, #eff6ff);
+  background: radial-gradient(circle,rgb(112, 112, 112),rgb(21, 27, 34));
   display: flex;
   flex-direction: column;
 `;
 
 /* Barra superior: cor de destaque, espaçamento e exibição dos dados do usuário e título */
 export const HeaderContainer = styled.header`
-  background-color: #3b82f6;
+  background-color: #1e1e1e;
+  border-bottom: 3px solid #007bff;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -73,8 +74,10 @@ export const EventsGrid = styled.div`
 `;
 
 export const Card = styled.div`
-  background: #fff;
+  background-color: #1e1e1e;
   border-radius: 8px;
+  border-left: 6px solid #007bff;
+  border-bottom: 6px solid #007bff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -97,13 +100,13 @@ export const CardImage = styled.img`
 
 export const CardTitle = styled.h2`
   font-size: 1.3rem;
-  color: #333;
+  color: #FFF;
   margin-bottom: 0.5rem;
 `;
 
 export const CardDescription = styled.p`
   font-size: 1rem;
-  color: #555;
+  color: #FFF;
   margin-bottom: 0.75rem;
   line-height: 1.4;
   flex-grow: 1;
@@ -111,16 +114,16 @@ export const CardDescription = styled.p`
 
 export const CardInfo = styled.p`
   font-size: 0.9rem;
-  color: #666;
+  color: #FFF;
   margin-bottom: 0.5rem;
 
   strong {
-    color: #333;
+    color: #FFF;
   }
 `;
 
 export const AddEventButton = styled.button`
-  background-color:rgb(59, 246, 59);
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -130,22 +133,23 @@ export const AddEventButton = styled.button`
   border-radius: 5px;
 
   &:hover {
-    background-color:rgb(70, 235, 37);
+    background-color:rgb(0, 55, 114);
   }
 `;
 
 export const DeleteEventButton = styled.button`
-  background-color: #ef4444;
+  background-color:rgb(253, 64, 64); /* Azul */
   color: white;
   border: none;
   padding: 10px 15px;
+  width: 50%;
   font-size: 1rem;
   cursor: pointer;
-  margin-top: auto;
   border-radius: 5px;
+  margin: 5px;
 
   &:hover {
-    background-color: #dc2626;
+    background-color:rgb(235, 37, 37); /* Azul mais escuro */
   }
 `;
 
@@ -168,29 +172,25 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  background-color: rgb(59, 246, 59); /* Verde */
   color: white;
   padding: 10px;
+  margin-top: 10px;
   border: none;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  background: #007bff
+  color: white;
+  transition: 0.3s;
 
   &:hover {
-    background-color: rgb(70, 235, 37); /* Verde um pouco mais escuro no hover */
+    opacity: 0.8;
   }
 `;
 
-export const DeleteButton = styled.button`
-  background-color: red; 
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: darkred;
-  }
+export const ContainerButtons = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const ModalOverlay = styled.div`
@@ -199,7 +199,7 @@ export const ModalOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,12 +207,14 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: #2c2c2c;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
 `;
 
 export const CloseButton = styled.button`
@@ -226,16 +228,58 @@ export const CloseButton = styled.button`
   color: #555;
 `;
 
+export const ModalTitle = styled.h2`
+  margin-bottom: 20px;
+  font-size: 22px;
+`;
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StyledInput = styled.input`
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  font-size: 14px;
+  background: #1e1e1e;
+  color: white;
+  outline: none;
+
+  &::placeholder {
+    color: #aaa;
+  }
+`;
+
 export const EditEventButton = styled.button`
   background-color: #3b82f6; /* Azul */
   color: white;
   border: none;
   padding: 10px 15px;
+  width: 50%;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 5px;
+  margin: 5px;
 
   &:hover {
     background-color: #2563eb; /* Azul mais escuro */
+  }
+`;
+export const BuyButton = styled.button`
+  background-color:rgb(16, 143, 60); /* Azul */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  width: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px;
+
+  &:hover {
+    background-color:rgb(38, 95, 13); /* Azul mais escuro */
   }
 `;

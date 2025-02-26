@@ -8,7 +8,8 @@ import {
   Input, 
   Button, 
   ErrorMessage, 
-  SuccessMessage 
+  SuccessMessage,
+  ContainerPage 
 } from './style';
 
 const Signup: React.FC = () => {
@@ -81,8 +82,9 @@ const Signup: React.FC = () => {
   };
 
   return (
+    <ContainerPage>
     <Container>
-      <Title>Cadastro de Usuário</Title>
+      <Title>Sign Up</Title>
       <Paragraph>Preencha os campos abaixo para criar sua conta</Paragraph>
       <Form onSubmit={handleSubmit}>
         <Input
@@ -149,6 +151,7 @@ const Signup: React.FC = () => {
       </Form>
       {success && <SuccessMessage>{success}</SuccessMessage>}
     </Container>
+    </ContainerPage>
   );
 };
 
