@@ -42,6 +42,7 @@ export const Button = styled.button`
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
+  margin-bottom: 1rem;
 
   &:disabled {
     background-color: #aaa;
@@ -53,4 +54,20 @@ export const ErrorMessage = styled.span`
   color: red;
   margin-bottom: 1rem;
   text-align: center;
+`;
+
+// Novo botão de "Criar Conta"
+export const SignupLink = styled.button`
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  width: 100%;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;

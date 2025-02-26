@@ -5,18 +5,31 @@ from utils import token_required
 
 events_bp = Blueprint("events", __name__)
 
-# Rota para obter todos os eventos (exemplo de GET)
+# Rota para obter todos os eventos, com filtro opcional por responsavel_id
 @events_bp.route("/", methods=["GET"])
 @token_required
 def get_events():
+    responsavel_id = request.args.get("responsavel_id")
+    
     conn = get_connection()
     cur = conn.cursor()
-    cur.execute(
-        """
-        SELECT id, nome, descricao, imagem, data_Evento, local_Evento, responsavel_id
-        FROM events;
-        """
-    )
+    
+    if responsavel_id:
+        cur.execute(
+            """
+            SELECT id, nome, descricao, imagem, data_Evento, local_Evento, responsavel_id
+            FROM events
+            WHERE responsavel_id = %s;
+            """, (responsavel_id,)
+        )
+    else:
+        cur.execute(
+            """
+            SELECT id, nome, descricao, imagem, data_Evento, local_Evento, responsavel_id
+            FROM events;
+            """
+        )
+    
     events = cur.fetchall()
     cur.close()
     conn.close()
@@ -34,6 +47,7 @@ def get_events():
         }
         for row in events
     ]
+    
     return jsonify(events_list)
 
 # Rota para inserir um novo evento (exemplo de POST)
@@ -65,12 +79,9 @@ def post_event():
     return jsonify({"msg": "Evento criado", "id": new_id})
 
 # Rota para deletar um evento (exemplo de DELETE)
-@events_bp.route("/", methods=["DELETE"])
+@events_bp.route("/<int:event_id>", methods=["DELETE"])
 @token_required
-def delete_event():
-    data = request.get_json()
-    event_id = data.get("id")
-    
+def delete_event(event_id):
     conn = get_connection()
     cur = conn.cursor()
     cur.execute("DELETE FROM events WHERE id = %s;", (event_id,))
@@ -79,3 +90,42 @@ def delete_event():
     conn.close()
     
     return jsonify({"msg": "Evento deletado"})
+
+@events_bp.route("/<int:event_id>", methods=["PUT"])
+@token_required
+def edit_event(event_id):
+    data = request.get_json()
+
+    # Verifica se há dados na requisição
+    if not data:
+        return jsonify({"msg": "Nenhum dado fornecido para atualização"}), 400
+
+    campos = []
+    valores = []
+
+    # Adiciona os campos que devem ser atualizados
+    for campo in ["nome", "descricao", "imagem", "data_Evento", "local_Evento", "responsavel_id"]:
+        if campo in data and data[campo] is not None:
+            campos.append(f"{campo} = %s")
+            valores.append(data[campo])
+
+    if not campos:
+        return jsonify({"msg": "Nenhum campo válido para atualização"}), 400
+
+    valores.append(event_id)  # Adiciona o ID ao final dos valores
+
+    query = f"UPDATE events SET {', '.join(campos)} WHERE id = %s RETURNING id;"
+
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute(query, valores)
+    
+    updated_row = cur.fetchone()
+    conn.commit()
+    cur.close()
+    conn.close()
+    
+    if updated_row:
+        return jsonify({"msg": "Evento atualizado", "id": event_id})
+    else:
+        return jsonify({"msg": "Evento não encontrado"}), 404

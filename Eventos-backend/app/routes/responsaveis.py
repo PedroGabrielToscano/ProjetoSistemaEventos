@@ -9,7 +9,7 @@ def get_responsaveis():
     try:
         conn = get_connection()
         cur = conn.cursor()
-        cur.execute("SELECT id, nome, cnpj, email, phone FROM responsaveis;")
+        cur.execute("SELECT id, nome, cnpj, email, phone, senha FROM responsaveis;")
         responsaveis = cur.fetchall()
         cur.close()
         conn.close()
@@ -22,7 +22,8 @@ def get_responsaveis():
             "nome": row[1],
             "cnpj": row[2],
             "email": row[3],
-            "phone": row[4]
+            "phone": row[4],
+            "senha": row[5]
         }
         for row in responsaveis
     ]
